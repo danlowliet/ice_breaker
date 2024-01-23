@@ -5,7 +5,6 @@ from langchain_community.chat_models import ChatOpenAI
 from third_parties.linkedin import scrap_linkedin_profile
 
 
-
 if __name__ == "__main__":
     print("hello friend")
 
@@ -22,12 +21,9 @@ if __name__ == "__main__":
     llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
     chain = LLMChain(llm=llm, prompt=summary_prompt_template)
-    
+
     linkedin_data = scrap_linkedin_profile(
         linkedin_profile_url="https://linkedin.com/in/thomas-hepburn-01721719/"
     )
 
     print(chain.run(information=linkedin_data))
-
-
-
