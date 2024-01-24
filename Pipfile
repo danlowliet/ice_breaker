@@ -6,8 +6,10 @@ name = "pypi"
 [packages]
 langchain = "*"
 black = "*"
-openai = "==0.28.1"
+openai = "*"
 langchain-community = "*"
+google-search-results = "*"
+langchain-openai = "*"
 
 [dev-packages]
 

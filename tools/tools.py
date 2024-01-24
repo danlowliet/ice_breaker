@@ -1,9 +1,10 @@
 from langchain.serpapi import SerpAPIWrapper
+from langchain_community.utilities import SerpAPIWrapper
 
 
+#using the SerpAPIWrapper method to go over the fluff and get the LinkedIn url
 def get_profile_url(text: str) -> str:
-    """Search for Linkedin Profile Page."""
+    """Searches for LinkedIn Profile Page."""
     search = SerpAPIWrapper()
-    res = search.run(f"{text}")
-    return res
-
+    res = search.results(f"{text}")
+    return res["organic_results"][0]["link"]
