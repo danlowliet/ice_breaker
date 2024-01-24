@@ -30,3 +30,4 @@ if __name__ == "__main__":
         )
 
     print(chain.run(information=linkedin_data))
+
