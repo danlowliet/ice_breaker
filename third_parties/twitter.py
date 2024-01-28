@@ -34,8 +34,8 @@ def scrape_user_tweets(username, num_tweets=5):
                 datetime.now(timezone.utc) - tweet.created_at
             )
             tweet_dict["text"] = tweet.text
-            tweet_dict[
-                "url"
-            ] = f"https://twitter.com/{tweet.user.screen_name}/status/{tweet.id}"
+            tweet_dict["url"] = (
+                f"https://twitter.com/{tweet.user.screen_name}/status/{tweet.id}"
+            )
             tweet_list.append(tweet_dict)
     return tweet_list

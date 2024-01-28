@@ -4,11 +4,11 @@ from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from agents.linkedin_lookup_agent import lookup as linkedin_lookup_agent
-from output_parsers import PersonIntel
+from output_parsers import person_intel_parser, PersonIntel
 from third_parties.linkedin import scrap_linkedin_profile
 
 
-def ice_break(name: str) -> Tuple[PersonIntel,str]:
+def ice_break(name: str) -> Tuple[PersonIntel, str]:
     linkedin_profile_url = linkedin_lookup_agent(name=name)
     linkedin_data = scrap_linkedin_profile(linkedin_profile_url=linkedin_profile_url)
     summary_template = """
@@ -36,3 +36,4 @@ def ice_break(name: str) -> Tuple[PersonIntel,str]:
 if __name__ == "__main__":
     print("hello friend")
     result = ice_break(name="Harrison Chaser")
+    print(result)
